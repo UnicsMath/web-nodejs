@@ -15,6 +15,7 @@ npm create svelte@latest my-app
 ```
 
 ## Developing
+
 ```bash
 # install pnpm (package manager)
 npm install -g pnpm
