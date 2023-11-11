@@ -7,7 +7,7 @@
 		{ class1: 'version', class2: 'title', text1: 'Pre', text2: 'calculus' },
 		{ class1: 'title', class2: 'version', text1: 'Calculus', text2: 'Volume 1' },
 		{ class1: 'title', class2: 'version', text1: 'Calculus', text2: 'Volume 2' },
-		{ class1: 'title', class2: 'version', text1: 'Calculus', text2: 'Volume 3' },
+		{ class1: 'title', class2: 'version', text1: 'Calculus', text2: 'Volume 3' }
 	];
 </script>
 
@@ -16,21 +16,21 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-	<nav>
-		<h1>Welcome Long, pick a course.</h1>
-		<ul>
-			{#each courses as course}
+<nav>
+	<h1>Welcome Long, pick a course.</h1>
+	<ul>
+		{#each courses as course}
 			<li>
-				<a href="/courses/{course.text1.toLowerCase()}-{course.text2.replace(' ','')}">
+				<a href="/courses/{course.text1.toLowerCase()}-{course.text2.replace(' ', '')}">
 					<div>
-						<span class="{course.class1}">{course.text1}</span>
-						<span class="{course.class2}">{course.text2}</span>
+						<span class={course.class1}>{course.text1}</span>
+						<span class={course.class2}>{course.text2}</span>
 					</div>
 				</a>
 			</li>
-			{/each}
-		</ul>
-	</nav>
+		{/each}
+	</ul>
+</nav>
 
 <style lang="scss">
 	@import '../../lib/stylesheet/design/design.scss';
@@ -54,7 +54,7 @@
 		border-radius: 10px;
 	}
 
-	div	{
+	div {
 		text-align: start;
 	}
 
