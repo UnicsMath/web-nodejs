@@ -9,8 +9,7 @@
 	<slot />
 </main>
 
-<footer>
-</footer>
+<footer />
 
 <style lang="scss">
 	@import '../lib/stylesheet/design/colors.scss';
