@@ -44,11 +44,7 @@ jobs:
           pnpm add @microsoft/eslint-formatter-sarif
 
       - name: Run ESLint
-        run: eslint .
-          --config .eslintrc.cjs
-          --ext .js,.jsx,.ts,.tsx
-          --format @microsoft/eslint-formatter-sarif
-          --output-file eslint-results.sarif
+        run: eslint --c .eslintrc.cjs --ext .js,.jsx,.ts,.tsx --o eslint-results.sarif --debug ./**
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
