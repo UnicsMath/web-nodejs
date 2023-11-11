@@ -1,0 +1,46 @@
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(fonts/Inter-Regular.woff2) format('woff2');
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	font-style: normal;
+	font-weight: bold;
+	font-display: swap;
+	src: url(fonts/Metropolis-Bold.woff2) format('woff2');
+}
+
+@mixin Heading-XXL {
+	font-family: 'Metropolis', Open Sans, sans-serif;
+	font-size: 4rem;
+	line-height: 72px;
+	padding: 50px 0;
+}
+
+@mixin Heading-XL {
+	font-family: 'Metropolis', Open Sans, sans-serif;
+	font-size: 3.5rem;
+	line-height: 64px;
+}
+
+@mixin Heading-LG {
+	font-family: 'Metropolis', Open Sans, sans-serif;
+	font-size: 3rem;
+	line-height: 56px;
+}
+
+@mixin Body-LG {
+	font-family: 'Inter', Open Sans, sans-serif;
+	font-size: 1.125rem;
+	line-height: 36px;
+}
+
+@mixin Body-MD {
+	font-family: 'Inter', Open Sans, sans-serif;
+	font-size: 1rem;
+	line-height: 24px;
+}
