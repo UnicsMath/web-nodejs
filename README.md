@@ -1,3 +1,5 @@
+[![Build Node.js CI](https://github.com/UnicsMath/web-nodejs/actions/workflows/nodejs.yml/badge.svg?branch=main)](https://github.com/UnicsMath/web-nodejs/actions/workflows/nodejs.yml)
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

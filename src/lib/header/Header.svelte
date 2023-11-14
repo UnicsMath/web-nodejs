@@ -1,19 +1,22 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	$: path = $page.url.pathname;
 </script>
 
 <header>
 	<nav data-sveltekit-preload-data>
 		<ul>
-			<li class:active={$page.url.pathname === '/'}><a href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/coursus'}>
+			<li class:active={path === '/'}>
+				<a href="/">Home</a>
+			</li>
+			<li class:active={path === '/courses'}>
 				<a href="/courses">Courses</a>
 			</li>
-			<li class:active={$page.url.pathname === '/progress'}>
+			<li class:active={path === '/progress'}>
 				<a href="/progress">Progress</a>
 			</li>
-			<li>
-				<a href="/">FAQ</a>
+			<li class:active={path === '/admin'}>
+				<a href="/admin">Admin</a>
 			</li>
 		</ul>
 	</nav>
@@ -49,7 +52,6 @@
 		position: relative;
 		height: 100%;
 	}
-
 	li.active::before {
 		--size: 6px;
 		content: '';
