@@ -16,7 +16,7 @@
 				<a href="/progress">Progress</a>
 			</li>
 			<li class:active={path === '/admin'}>
-				<a href="/admin">Admin</a>
+				<a href="/admin/courses">Admin</a>
 			</li>
 		</ul>
 	</nav>
