@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	$: path = $page.url.pathname;
+  import { page } from "$app/stores";
+
+  $: path = $page.url.pathname;
 </script>
 
 <header>

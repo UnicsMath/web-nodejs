@@ -1,16 +1,16 @@
 <script lang="ts">
-	import '$lib/stylesheet/design/katex.min.css';
-	import { Editor, rootCtx, defaultValueCtx } from '@milkdown/core';
-	import { history } from '@milkdown/plugin-history';
-	import { commonmark } from '@milkdown/preset-commonmark';
-	import { math } from '@milkdown/plugin-math';
-	import { cursor } from '@milkdown/plugin-cursor';
-	import { trailing } from '@milkdown/plugin-trailing';
-	import { clipboard } from '@milkdown/plugin-clipboard';
-	import { listener, listenerCtx } from '@milkdown/plugin-listener';
-	import type { JSONRecord } from '@milkdown/transformer';
+  import "$lib/stylesheet/design/katex.min.css";
+  import { defaultValueCtx, Editor, rootCtx } from "@milkdown/core";
+  import { history } from "@milkdown/plugin-history";
+  import { commonmark } from "@milkdown/preset-commonmark";
+  import { math } from "@milkdown/plugin-math";
+  import { cursor } from "@milkdown/plugin-cursor";
+  import { trailing } from "@milkdown/plugin-trailing";
+  import { clipboard } from "@milkdown/plugin-clipboard";
+  import { listener, listenerCtx } from "@milkdown/plugin-listener";
+  import type { JSONRecord } from "@milkdown/transformer";
 
-	function getDefaultValue():
+  function getDefaultValue():
 		| { type: 'html'; dom: HTMLElement }
 		| { type: 'json'; value: JSONRecord } {
 		const jsonString = localStorage.getItem('doc');
