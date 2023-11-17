@@ -1,6 +1,6 @@
-import type { PageServerLoad, Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import axios from 'axios';
-import { API_GATEWAY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 export const load: PageServerLoad = async ({ cookies }) => {
 	const user = cookies.get('jwt');
@@ -13,7 +13,7 @@ export const actions = {
 
 		try {
 			const response = await axios.post(
-				`${API_GATEWAY}/authentication`,
+				`${env.API_GATEWAY}/authentication`,
 				{
 					username: data.get('email'),
 					password: data.get('password')
