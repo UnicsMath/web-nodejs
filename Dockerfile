@@ -12,8 +12,10 @@ FROM base AS build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
-FROM base
+FROM node:lts-alpine
+WORKDIR /app
+COPY package.json /app
 COPY --from=prod-deps /app/node_modules /app/node_modules
 COPY --from=build /app/build /app/build
 EXPOSE 3000
-CMD [ "node", "-r", "dotenv/config", "build" ]
+CMD [ "node", "build" ]
