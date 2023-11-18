@@ -1,41 +1,41 @@
 <script lang="ts">
-  import "$lib/stylesheet/design/katex.min.css";
-  import { defaultValueCtx, Editor, rootCtx } from "@milkdown/core";
-  import { history } from "@milkdown/plugin-history";
-  import { commonmark } from "@milkdown/preset-commonmark";
-  import { math } from "@milkdown/plugin-math";
-  import { cursor } from "@milkdown/plugin-cursor";
-  import { trailing } from "@milkdown/plugin-trailing";
-  import { clipboard } from "@milkdown/plugin-clipboard";
-  import { listener, listenerCtx } from "@milkdown/plugin-listener";
-  import type { JSONRecord } from "@milkdown/transformer";
+	import "$lib/stylesheet/design/katex.min.css";
+	import type { DefaultValue } from "@milkdown/core";
+	import { defaultValueCtx, Editor, rootCtx } from "@milkdown/core";
+	import { history } from "@milkdown/plugin-history";
+	import { commonmark } from "@milkdown/preset-commonmark";
+	import { math } from "@milkdown/plugin-math";
+	import { cursor } from "@milkdown/plugin-cursor";
+	import { trailing } from "@milkdown/plugin-trailing";
+	import { clipboard } from "@milkdown/plugin-clipboard";
+	import { listener, listenerCtx } from "@milkdown/plugin-listener";
+	import type { Ctx } from "@milkdown/ctx";
+	import type { Node } from ".pnpm/prosemirror-model@1.19.3/node_modules/prosemirror-model";
 
-  function getDefaultValue():
-		| { type: 'html'; dom: HTMLElement }
-		| { type: 'json'; value: JSONRecord } {
+	function getDefaultValue(): DefaultValue {
 		const jsonString = localStorage.getItem('doc');
 		try {
-			const value = jsonString ? JSON.parse(jsonString) : {};
-			return { type: 'json', value };
+			return jsonString
+				? {
+					type: "json",
+					value: JSON.parse(jsonString)
+				}
+				: "# Create your content here";
 		} catch (error) {
-			console.error('Error parsing JSON from localStorage:', error);
-			return { type: 'json', value: {} };
+			return `Error parsing JSON from localStorage: ${error}`;
 		}
 	}
 
-	function saveDocumentToLocalStorage(ctx: any, doc: any) {
+	function saveDocumentToLocalStorage(ctx: Ctx, doc: Node) {
 		localStorage.setItem('doc', JSON.stringify(doc.toJSON()));
 	}
 
-	function configureEditor(
-		dom: any,
-		defaultValue: { type: 'html'; dom: HTMLElement } | { type: 'json'; value: JSONRecord }
-	) {
+	function editor(dom: HTMLElement) {
 		Editor.make()
 			.config((ctx) => {
 				ctx.set(rootCtx, dom);
-				ctx.set(defaultValueCtx, defaultValue || '# 1. Start editing');
-				ctx.get(listenerCtx).updated((ctx, doc, prevDoc) => {
+				ctx.set(defaultValueCtx, getDefaultValue());
+				ctx.get(listenerCtx).updated((ctx, doc) => {
 					saveDocumentToLocalStorage(ctx, doc);
 				});
 			})
@@ -48,15 +48,9 @@
 			.use(clipboard)
 			.create();
 	}
-
-	function editor(dom: any) {
-		const defaultValue = getDefaultValue();
-		configureEditor(dom, defaultValue);
-	}
 </script>
 
 <svelte:head>
 	<title>Admin</title>
 </svelte:head>
-
 <div use:editor />
