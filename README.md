@@ -25,7 +25,7 @@ npm install -g pnpm
 
 ```bash
 # install dependencies
-pnpm install
+pnpm i
 ```
 
 ```bash
