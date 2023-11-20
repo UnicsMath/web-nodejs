@@ -8,7 +8,7 @@
 
 {#if form?.success}
 	<p>Successfully logged in! Welcome back</p>
-	<p>{data.user}</p>
+	<p>JWT: {data.user}</p>
 {/if}
 
 <form method="POST">
