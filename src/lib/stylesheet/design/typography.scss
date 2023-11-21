@@ -4,7 +4,7 @@
 	font-weight: 400;
 	font-display: swap;
 	//noinspection CssUnknownTarget
-	src: url(fonts/Inter-Regular.woff2) format('woff2');
+	src: url('/fonts/Inter-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
 	font-weight: bold;
 	font-display: swap;
 	//noinspection CssUnknownTarget
-	src: url(fonts/Metropolis-Bold.woff2) format('woff2');
+	src: url('/fonts/Metropolis-Bold.woff2') format('woff2');
 }
 
 @mixin Heading-XXL {
