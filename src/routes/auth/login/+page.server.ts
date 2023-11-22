@@ -2,6 +2,11 @@ import type { Actions, PageServerLoad } from './$types';
 import axios from 'axios';
 import { env } from '$env/dynamic/private';
 
+interface AuthenticationResponse {
+	access_token: string;
+	token_type: string;
+}
+
 export const load: PageServerLoad = async ({ cookies }) => {
 	const user = cookies.get('jwt');
 	return { user };
@@ -12,7 +17,7 @@ export const actions = {
 		const data = await request.formData();
 
 		try {
-			const response = await axios.post(
+			const response = await axios.post<AuthenticationResponse>(
 				`${env.API_GATEWAY}/authentication`,
 				{
 					username: data.get('email'),

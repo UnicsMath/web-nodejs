@@ -6,14 +6,11 @@ name: Docker publish
 # documentation.
 
 on:
-  schedule:
-    - cron: '0 12 * * 6'
-  push:
-    branches: ['main', 'dev']
-    # Publish semver tags as releases.
-    tags: ['v*.*.*']
   pull_request:
     branches: ['main']
+    tags: ['v*.*.*']
+    types:
+      - closed
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -22,7 +19,8 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: read
