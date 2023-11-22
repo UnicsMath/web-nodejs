@@ -8,8 +8,8 @@ interface AuthenticationResponse {
 }
 
 export const load: PageServerLoad = async ({ cookies }) => {
-	const user = cookies.get('jwt');
-	return { user };
+	const jwt = cookies.get('jwt');
+	return { jwt };
 };
 
 export const actions = {
@@ -18,7 +18,7 @@ export const actions = {
 
 		try {
 			const response = await axios.post<AuthenticationResponse>(
-				`${env.API_GATEWAY}/authentication`,
+				`${env.PUBLIC_API_GATEWAY}/authentication`,
 				{
 					username: data.get('email'),
 					password: data.get('password')
@@ -30,7 +30,7 @@ export const actions = {
 				}
 			);
 
-			cookies.set('jwt', response.data.access_token, {
+			cookies.set('jwt', JSON.stringify(response.data), {
 				path: '/',
 				httpOnly: true,
 				secure: true,

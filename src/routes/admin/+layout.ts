@@ -1,3 +1,4 @@
+import { env } from '$env/dynamic/public';
 import type { LayoutLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 import axios from 'axios';
@@ -9,8 +10,8 @@ export const load: LayoutLoad = async () => {
 
 	try {
 		const response = await axios.post(
-			'YOUR_BACKEND_API/validateToken',
-			{ token: jwt },
+			`${env.PUBLIC_API_GATEWAY}/authorization`,
+			{ jwt: jwt },
 			{
 				headers: {
 					'Content-Type': 'application/json',
@@ -24,6 +25,4 @@ export const load: LayoutLoad = async () => {
 		console.log(error);
 		throw redirect(308, '/auth/login');
 	}
-
-	return {};
 };
