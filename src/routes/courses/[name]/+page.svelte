@@ -6,25 +6,17 @@
 
 <section>
 	<div>
-		<h1>{data.content.title}</h1>
-		<p>{data.content.text}</p>
+		<h1>{data.course.name}</h1>
+		<p>{data.course.description}</p>
 	</div>
 	<h3>Course content</h3>
 	<ol>
-		{#each data.content.contents as content}
+		{#each data.course.chapters as chapter}
 			<li>
-				<p>{content}</p>
+				<p>{chapter}</p>
 			</li>
 		{/each}
 	</ol>
-	{#each data.content.contents as content}
-		<h3>{content}</h3>
-		{#if content === 'Whole Numbers'}
-			<strong>What is the difference between counting numbers and whole numbers?</strong>
-			<h4>Exercises</h4>
-			<p />
-		{/if}
-	{/each}
 </section>
 
 <style lang="scss">

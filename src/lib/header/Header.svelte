@@ -5,7 +5,7 @@
 </script>
 
 <header>
-	<nav data-sveltekit-preload-data>
+	<nav>
 		<ul>
 			<li class:active={path === '/'}>
 				<a href="/">Home</a>

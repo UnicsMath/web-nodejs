@@ -1,6 +1,6 @@
 import type { Actions, PageServerLoad } from './$types';
 import axios from 'axios';
-import { env } from '$env/dynamic/private';
+import { env } from '$env/dynamic/public';
 
 interface AuthenticationResponse {
 	access_token: string;
