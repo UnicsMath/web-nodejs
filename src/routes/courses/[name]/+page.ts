@@ -1,6 +1,5 @@
 import { env } from '$env/dynamic/public';
 import type { PageLoad } from './$types';
-import axios from 'axios';
 
 type Course = {
 	name: string;
@@ -15,11 +14,16 @@ type Course = {
 	chapters: string[];
 };
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageLoad = async ({ fetch, params }) => {
 	try {
-		const course: Course = await axios.get(`${env.PUBLIC_API_GATEWAY}/Course/${params.name}`);
-		return { course };
+		const response = await fetch(`${env.PUBLIC_API_GATEWAY}/course/${params.name}`);
+
+		if (!response.ok) return { course: null };
+
+		return { course: await response.json() } as { course: Course };
 	} catch (error) {
 		console.error(error);
+
+		return { course: null };
 	}
 };

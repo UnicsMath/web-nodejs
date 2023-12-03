@@ -1,6 +1,5 @@
 import { env } from '$env/dynamic/public';
 import type { PageLoad } from './$types';
-import axios from 'axios';
 
 type Page = {
 	chapterNumber: number;
@@ -24,11 +23,16 @@ type Page = {
 // 	Exponents
 // }
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageLoad = async ({ fetch, params }) => {
 	try {
-		const page: Page = await axios.get(`${env.PUBLIC_API_GATEWAY}/Page/${params.page}`);
-		return { page };
+		const response = await fetch(`${env.PUBLIC_API_GATEWAY}/page/${parseInt(params.page)}`);
+
+		if (!response.ok) return { page: null };
+
+		return { page: await response.json() } as { page: Page };
 	} catch (error) {
 		console.error(error);
+
+		return { page: null };
 	}
 };

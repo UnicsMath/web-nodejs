@@ -13,7 +13,7 @@
 
 <svelte:head>
 	<title>Courses</title>
-	<meta name="description" content="About this app" />
+	<meta name="description" content="All 8 courses to learn everything math." />
 </svelte:head>
 
 <nav>
@@ -21,7 +21,7 @@
 	<ul>
 		{#each courses as course}
 			<li>
-				<a href="/courses/{course.text1.toLowerCase()}-{course.text2.replace(' ', '')}">
+				<a href="/courses/{course.text1.toLowerCase()}-{course.text2.replace(/\s/g, '-')}">
 					<div>
 						<span class={course.class1}>{course.text1}</span>
 						<span class={course.class2}>{course.text2}</span>

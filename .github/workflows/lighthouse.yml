@@ -1,0 +1,30 @@
+name: Lighthouse
+
+on:
+  push:
+    branches: ['main', 'dev']
+
+jobs:
+  lhci:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
+
+      - name: Install dependencies & build
+        run: |
+          pnpm i
+          pnpm run build
+
+      - name: run Lighthouse CI
+        run: |
+          pnpm add -g @lhci/cli@latest
+          lhci autorun

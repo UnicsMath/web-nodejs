@@ -1,11 +1,5 @@
 import type { Actions, PageServerLoad } from './$types';
-import axios from 'axios';
-import { env } from '$env/dynamic/public';
-
-interface AuthenticationResponse {
-	access_token: string;
-	token_type: string;
-}
+import { env } from '$env/dynamic/private';
 
 export const load: PageServerLoad = async ({ cookies }) => {
 	const jwt = cookies.get('jwt');
@@ -13,24 +7,24 @@ export const load: PageServerLoad = async ({ cookies }) => {
 };
 
 export const actions = {
-	default: async ({ request, cookies }) => {
+	default: async ({ request, fetch, cookies }) => {
 		const data = await request.formData();
 
 		try {
-			const response = await axios.post<AuthenticationResponse>(
-				`${env.PUBLIC_API_GATEWAY}/authentication`,
-				{
-					username: data.get('email'),
-					password: data.get('password')
-				},
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded'
-					}
+			const response = await fetch(`${env.API_GATEWAY}/authentication`, {
+				method: 'POST',
+				body: new URLSearchParams({
+					username: String(data.get('email') ?? ''),
+					password: String(data.get('password') ?? '')
+				}),
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
 				}
-			);
+			});
 
-			cookies.set('jwt', JSON.stringify(response.data), {
+			const jwt = await response.json();
+
+			cookies.set('jwt', JSON.stringify(jwt), {
 				path: '/',
 				httpOnly: true,
 				secure: true,
@@ -38,6 +32,7 @@ export const actions = {
 			});
 		} catch (error) {
 			console.log(error);
+
 			return { success: false };
 		}
 

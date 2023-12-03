@@ -48,7 +48,6 @@
 		"@milkdown/prose": "^7.3.1",
 		"@milkdown/theme-nord": "^7.3.1",
 		"@milkdown/transformer": "^7.3.1",
-		"axios": "^1.6.1",
 		"dotenv": "^16.3.1",
 		"katex": "^0.16.9",
 		"pnpm": "^8.10.4"

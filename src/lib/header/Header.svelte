@@ -13,10 +13,7 @@
 			<li class:active={path === '/courses'}>
 				<a href="/courses">Courses</a>
 			</li>
-			<li class:active={path === '/progress'}>
-				<a href="/progress">Progress</a>
-			</li>
-			<li class:active={path === '/admin'}>
+			<li class:active={path === '/admin/courses'}>
 				<a href="/admin/courses">Admin</a>
 			</li>
 		</ul>
@@ -25,58 +22,34 @@
 
 <style>
 	header {
-		display: flex;
-	}
-
-	nav {
-		display: flex;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		background: rgba(255, 255, 255, 0.7);
-		border-radius: 0 0 10px 10px;
+		margin-top: 5vh;
 	}
 
 	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
+		height: 5vh;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background-size: contain;
 	}
 
 	li {
 		position: relative;
 		height: 100%;
 	}
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
+
+	li.active a {
+		background-color: blanchedalmond;
 	}
 
 	nav a {
+		border-radius: 20px 20px 0 0;
+		background: rgba(255, 255, 255, 0.7);
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
+		padding: 0 2em;
+	}
+
+	a {
+		border-right: 1px solid black;
 	}
 
 	a:hover {

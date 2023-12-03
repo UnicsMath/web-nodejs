@@ -6,7 +6,9 @@
 <Header />
 
 <main>
-	<slot />
+	<div>
+		<slot />
+	</div>
 </main>
 
 <footer />
@@ -14,12 +16,13 @@
 <style lang="scss">
 	@import '../lib/stylesheet/design/colors.scss';
 	main {
-		background-color: #e0c9a6;
-		max-width: 1350px;
-		min-height: 80vh;
-		margin: 10vh 10px 0;
-		padding: 5vh 0;
-		width: 100%;
+		background-color: $colorPaper;
+		min-height: 90vh;
+		width: 70.7108562378vw;
+	}
+	main > div {
 		text-align: center;
+		padding: 10vh 5rem;
+		min-height: 70vh;
 	}
 </style>

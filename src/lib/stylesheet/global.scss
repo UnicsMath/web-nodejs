@@ -19,7 +19,8 @@ h3,
 h4,
 h5,
 h6,
-a {
+a,
+label {
 	text-decoration: none;
 	color: #000000;
 	margin: 0;
@@ -27,7 +28,9 @@ a {
 
 strong,
 p,
-a {
+a,
+label,
+button {
 	@include Body-LG;
 }
 
@@ -46,11 +49,39 @@ h3 {
 body {
 	z-index: 0;
 	display: flex;
-	justify-content: center;
+	flex-flow: column;
+	align-items: center;
 }
 header {
 	z-index: 2;
 }
 main {
 	z-index: 1;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+}
+
+label {
+	margin-bottom: 10px;
+}
+
+input {
+	display: block;
+	border-radius: 50px;
+	border: 1px solid darkgray;
+	padding: 10px 15px;
+}
+
+button,
+section a {
+	background-color: #262a2b;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	padding: 5px 30px;
+	display: block;
+	width: fit-content;
 }
