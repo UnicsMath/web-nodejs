@@ -1,7 +1,7 @@
 module.exports = {
 	ci: {
 		collect: {
-			url: '0.0.0.0:3000',
+			url: 'http://0.0.0.0:3000',
 			startServerCommand: 'node build',
 			startServerReadyPattern: 'Listening on 0.0.0.0:3000'
 		},
