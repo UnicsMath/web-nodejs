@@ -25,14 +25,19 @@
 		margin-top: 5vh;
 	}
 
+	nav {
+		max-width: 400px;
+	}
+
 	ul {
 		height: 5vh;
 		display: flex;
+		flex-wrap: wrap;
 	}
 
 	li {
-		position: relative;
 		height: 100%;
+		flex-grow: 1;
 	}
 
 	li.active a {
@@ -41,10 +46,11 @@
 
 	nav a {
 		border-radius: 20px 20px 0 0;
-		background: rgba(255, 255, 255, 0.7);
+		background: #ffffff;
 		display: flex;
 		height: 100%;
 		align-items: center;
+		justify-content: center;
 		padding: 0 2em;
 	}
 

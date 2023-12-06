@@ -25,4 +25,20 @@
 		padding: 10vh 5rem;
 		min-height: 70vh;
 	}
+	@media only screen and (max-width: 1200px) {
+		main {
+			width: 80vw;
+		}
+		main > div {
+			padding: 5vh 2rem;
+		}
+	}
+	@media only screen and (max-width: 600px) {
+		main {
+			width: 100vw;
+		}
+		main > div {
+			padding: 5vh 0;
+		}
+	}
 </style>

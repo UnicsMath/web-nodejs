@@ -14,7 +14,9 @@ const config = {
 	kit: {
 		csp: {
 			directives: {
-				'script-src': ['self']
+				'script-src': ['self', 'unsafe-inline'],
+				'object-src': ['none'],
+				'base-uri': ['self']
 			}
 		},
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
