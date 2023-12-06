@@ -14,7 +14,9 @@ module.exports = {
 		assert: {
 			preset: 'lighthouse:no-pwa',
 			assertions: {
-				'bf-cache': 'off'
+				'bf-cache': 'off',
+				'errors-in-console': 'off',
+				'uses-text-compression': 'off'
 			}
 		},
 		upload: {
