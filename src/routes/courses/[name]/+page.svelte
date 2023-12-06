@@ -5,6 +5,14 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>{data.course ? data.course.name : 'No course'}</title>
+	<meta
+		name="description"
+		content={data.course ? data.course.description : 'Course could not be found or loaded.'}
+	/>
+</svelte:head>
+
 <section>
 	{#if data.course}
 		<div>
@@ -26,7 +34,7 @@
 			>Next page</a
 		>
 	{:else if data.course === null}
-		<p>Error: Course not found</p>
+		<p>Course could not be found or loaded</p>
 	{:else}
 		<p>Loading...</p>
 	{/if}

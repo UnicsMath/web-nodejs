@@ -6,6 +6,14 @@
 	export let form: ActionData;
 </script>
 
+<svelte:head>
+	<title>Sign in</title>
+	<meta
+		name="description"
+		content="Sign in to track your Math progress, ask question, and manage subscriptions."
+	/>
+</svelte:head>
+
 {#if form?.success}
 	<p>Successfully logged in! Welcome back</p>
 	<p>JWT: {data.jwt}</p>
