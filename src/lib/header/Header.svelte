@@ -22,7 +22,7 @@
 
 <style>
 	header {
-		margin-top: 5vh;
+		margin-top: 7vh;
 	}
 
 	nav {
@@ -30,13 +30,12 @@
 	}
 
 	ul {
-		height: 5vh;
 		display: flex;
 		flex-wrap: wrap;
 	}
 
 	li {
-		height: 100%;
+		height: 3vh;
 		flex-grow: 1;
 	}
 
@@ -60,5 +59,14 @@
 
 	a:hover {
 		color: var(--accent-color);
+	}
+
+	@media only screen and (max-width: 393px) {
+		a {
+			border: 1px solid black;
+		}
+		nav a {
+			border-radius: 0;
+		}
 	}
 </style>

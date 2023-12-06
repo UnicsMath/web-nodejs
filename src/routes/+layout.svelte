@@ -19,6 +19,7 @@
 		background-color: $colorPaper;
 		min-height: 90vh;
 		width: 70.7108562378vw;
+		max-width: 1350px;
 	}
 	main > div {
 		text-align: center;
@@ -35,7 +36,7 @@
 	}
 	@media only screen and (max-width: 600px) {
 		main {
-			width: 100vw;
+			width: 100%;
 		}
 		main > div {
 			padding: 5vh 0;
