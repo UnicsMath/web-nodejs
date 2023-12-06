@@ -31,8 +31,6 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 		return { page: await response.json() } as { page: Page };
 	} catch (error) {
-		console.error(error);
-
 		return { page: null };
 	}
 };

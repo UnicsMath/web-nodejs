@@ -12,7 +12,10 @@ module.exports = {
 			startServerReadyPattern: 'Listening on 0.0.0.0:3000'
 		},
 		assert: {
-			preset: 'lighthouse:no-pwa'
+			preset: 'lighthouse:no-pwa',
+			assertions: {
+				'bf-cache': 'off'
+			}
 		},
 		upload: {
 			target: 'temporary-public-storage'

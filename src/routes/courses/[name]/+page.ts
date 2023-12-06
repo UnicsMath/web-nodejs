@@ -22,8 +22,6 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 		return { course: await response.json() } as { course: Course };
 	} catch (error) {
-		console.error(error);
-
 		return { course: null };
 	}
 };
