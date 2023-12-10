@@ -4,7 +4,7 @@ import type { PageLoad } from './$types';
 type Page = {
 	chapterNumber: number;
 	title: string;
-	description: string;
+	content: string;
 };
 
 // type ExpressionConfiguration = {
