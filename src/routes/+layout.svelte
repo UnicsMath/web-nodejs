@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '$lib/header/Header.svelte';
 	import '$lib/stylesheet/app.scss';
+	import ChatBot from '$lib/ChatBot/ChatBot.svelte';
 </script>
 
 <Header />
@@ -11,6 +12,7 @@
 	</div>
 </main>
 
+<ChatBot />
 <footer />
 
 <style lang="scss">
