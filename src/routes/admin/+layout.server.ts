@@ -6,7 +6,7 @@ export const load: LayoutServerLoad = async ({ fetch, cookies }) => {
 	const swt = cookies.get('jwt');
 	const jwt = swt ? JSON.parse(swt) : undefined;
 
-	if (!jwt) throw redirect(308, '/auth/login');
+	if (!jwt) redirect(308, '/auth/login');
 
 	try {
 		const response = await fetch(`${env.API_GATEWAY}/authorization`, {
@@ -20,7 +20,7 @@ export const load: LayoutServerLoad = async ({ fetch, cookies }) => {
 	} catch (error) {
 		console.log(error);
 
-		throw redirect(308, '/auth/login');
+		redirect(308, '/auth/login');
 	}
-	throw redirect(308, '/auth/login');
+	redirect(308, '/auth/login');
 };
