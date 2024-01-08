@@ -9,10 +9,11 @@
 	let messagePayloads: MessagePayload[] = [
 		{ senderId: 'Chatbot', message: 'Hello, how can I help you' }
 	];
+
 	let message: string = ``;
 
 	const connection = new HubConnectionBuilder()
-		.withUrl('http://localhost:5118/ChatBotHub')
+		.withUrl('http://localhost:5118/ChatbotHub')
 		.configureLogging(LogLevel.Information)
 		.build();
 
