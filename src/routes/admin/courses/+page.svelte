@@ -10,7 +10,7 @@
 	import { clipboard } from '@milkdown/plugin-clipboard';
 	import { listener, listenerCtx } from '@milkdown/plugin-listener';
 	import type { Ctx } from '@milkdown/ctx';
-	import type { Node } from '.pnpm/prosemirror-model@1.19.3/node_modules/prosemirror-model';
+	import type { Node } from '.pnpm/prosemirror-model@1.19.4/node_modules/prosemirror-model';
 
 	function getDefaultValue(): DefaultValue {
 		const jsonString = localStorage.getItem('doc');
